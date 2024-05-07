@@ -1,7 +1,11 @@
+import Navbar from "@/components/navbar";
 import Image from "next/image";
+
 
 export default function Home() {
   return (
+    <>
+    <Navbar />
     <main className="flex min-h-screen flex-col m-15  items-center ">
       <div className="grid grid-cols-first-block mt-12 w-1242">
         <div className="flex flex-col items-center justify-center gap-3 w-687">
@@ -11,5 +15,6 @@ export default function Home() {
         <Image  className=' w-555 pl-2 pt-6' src='/landingPage.jpg' width={544} height={531} quality={100} alt='dashboard image'/>
       </div>
     </main>
+    </>
   );
 }

@@ -17,10 +17,11 @@ const config: Config = {
     },
     screens: {
       //rules refer as min width
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
+      'sm': {'max': '639px'},
+      'md': {'min': '640px', 'max': '767px'},
+      'lg': {'min': '768px', 'max': '1023px'},
+      'xl': {'min': '1024px', 'max': '1279px'},
+      '2xl': {'min': '1280px'},
     },
     colors: {
       //main app color
@@ -49,7 +50,8 @@ const config: Config = {
     },
     gridTemplateColumns: {
       'first-block':'687px 545px',
-      '3':'repeat(3, minmax(0,1fr))'
+      '3':'repeat(3, minmax(0,1fr))',
+      '2':'repeat(2, minmax(0,1fr))'
     }
   },
   plugins: [],
