@@ -9,8 +9,8 @@ interface PricingCardProps {
 
 function PricingCard(props: PricingCardProps) {
 
-    const normalFeatures = ['Mdsdasde ','uplo','ne poner'];
-    const premiumFeatures = ['Eses', 'el amon','dicacn'];
+    const normalFeatures = ['Solo un numero registrado. ','Mensajes limitados.','Funnels limitados.'];
+    const premiumFeatures = ['Hasta un maximo de cinco telefonos.', 'Mensajes ilimitados.','Funnels ilimitados.'];
     
     return(
         <div className="border shadow-2xl rounded-lg">
