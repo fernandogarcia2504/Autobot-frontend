@@ -15,7 +15,7 @@ const BlogCard = (props: BlogProps) => {
                 <p className="font-bold py-1">Nuevo</p>
                 <p className="font-bold text-xl text-green py-2">{props.title}</p>
                 <p className="font-semibold py-2">{props.description}</p>
-                <button className="text-green py-2 pb-4">VER MAS -> </button>
+                <button className="text-green py-2 pb-4">VER MAS {'->'}</button>
                 </div>
             </div>
         </div>
