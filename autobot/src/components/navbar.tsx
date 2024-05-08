@@ -8,7 +8,7 @@ const Navbar = () => {
                 <h1 className="pl-14 pt-2">Logo</h1>
                 <div className="flex justify-center gap-10 pt-2">
                     <Link href='/Register' className="font-semibold">Pricing</Link>
-                    <p className="font-semibold">Blog</p>
+                    <Link href='/Blog' className="font-semibold">Blog</Link>
                 </div>
                 <div className="flex justify-end pr-14 gap-10">
                     <Link href='/Login' className="p-2 font-semibold">Login</Link>
