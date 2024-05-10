@@ -22,7 +22,7 @@ export default function Home() {
         <div className="flex flex-col max-w-xs gap-1">
           <p className="text-green font-bold text-xl  text-start border-t-2 border-gray-400">Paso 1</p>
           <p className="text-lg font-bold">Elige tu plan</p>
-          <p>Ve los <Link className="text-green underline underline-offset-2" href='/pricing'>planes</Link> que tenemos para ti y elige el que mejor se ajuste a tus necesidades.</p>
+          <p>Ve los <Link className="text-green underline underline-offset-2" href='/Register'>planes</Link> que tenemos para ti y elige el que mejor se ajuste a tus necesidades.</p>
         </div>
         <div className="flex flex-col max-w-xs border-t-2 border-gray-400 gap-1">
           <p className="text-green font-bold text-xl text-start">Paso 2</p>
