@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const RegisterCard = () => {
 
@@ -14,7 +15,9 @@ const RegisterCard = () => {
                     <input className="border rounded-md py-1" type="text" placeholder="  Correo electronico" />
                     <input className="border rounded-md py-1" type="password" placeholder="  Contraseña" />
                     <input className="border rounded-md py-1" type="password" placeholder="  Confirmar Contraseña" />
-                    <button className="text-white bg-green rounded-lg p-2 mb-4">Confirmar</button>
+                    <Link href="/Paying" className="text-white text-center bg-green rounded-lg p-2 mb-4">
+                        <button >Confirmar</button>
+                    </Link>
                 </div>
             </div>
         </div>
