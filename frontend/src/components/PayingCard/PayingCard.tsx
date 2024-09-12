@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import { FormEvent, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,10 +12,25 @@ const PayingCard = () => {
 
     const navigate = useNavigate();
 
+    const[name,setName] = useState('');
+    const[expirationDate,setExpirationDate] = useState('');
+    const[cvv,setCvv] = useState('');
+    const[cardNumber,setCardNumber] = useState('');
+    const[address,setAddress] = useState('');
+    const[phonenumber,setPhonenumber] = useState('');
+
     function handleSubmit(event: FormEvent<HTMLFormElement>)  {
         event.preventDefault();
+        const payment = {name,expirationDate,cvv,cardNumber,address,phonenumber}
 
-        navigate("/auth/dashboard");
+        axios.post("http://localhost:8080/payment", payment)
+            .then(() => {
+                console.log("New payment method");
+                navigate("/auth/dashboard");
+            })
+            .catch(error => {
+                console.error("There was an error making the request!", error);
+            });
     }
   
     return (
@@ -25,13 +41,13 @@ const PayingCard = () => {
                     <h1 className="text-green font-bold text-2xl pb-2">Detalles de pago</h1>
                     <div className="flex flex-col">
                         <label>Nombre en la tarjeta</label>
-                        <input className="border-b border-black mr-16" type="text" placeholder="Nombre en la tarjeta..." />
+                        <input className="border-b border-black mr-16" value={name} onChange={(e) => setName(e.target.value) } type="text" placeholder="Nombre en la tarjeta..." required/>
 
                         <label>Numero de telefono</label>
-                        <input className="border-b border-black mr-16" type="text" placeholder="Numero de telefono..." /> 
+                        <input className="border-b border-black mr-16" value={phonenumber} onChange={(e) =>setPhonenumber(e.target.value) } type="text" placeholder="Numero de telefono..." required/> 
 
                         <label>Direccion de facturacion</label>
-                        <input className="border-b border-black mr-16" type="text" placeholder="Direccion de facturacion..." />
+                        <input className="border-b border-black mr-16" value={address} onChange={(e) => setAddress(e.target.value) } type="text" placeholder="Direccion de facturacion..." required/>
                         
                     </div>
                     <div className="flex flex-col items-center">
@@ -54,15 +70,15 @@ const PayingCard = () => {
                     </div>
                     <div className="flex flex-col">
                         <label>Numero de tarjeta</label>
-                        <input className="border-b border-black" type="text" placeholder=" Numero de tarjeta..." />
+                        <input className="border-b border-black" onChange={(e) => setCardNumber(e.target.value) } type="text" value={cardNumber} placeholder=" Numero de tarjeta..." required/>
                         <div className="grid grid-cols-2 gap-3 ">
                             <div className="grid grid-rows-2">
                                 <label>Fecha de expiracion</label>
-                                <input className="border-b border-black" type="text" placeholder=" Fecha..." />
+                                <input className="border-b border-black" onChange={(e) => setExpirationDate(e.target.value) } type="text" value={expirationDate} placeholder=" Fecha..." required/>
                             </div>
                             <div className="grid grid-rows-2">
                                 <label>CVV</label>
-                                <input className="border-b border-black" type="text" placeholder=" CVV..." />
+                                <input className="border-b border-black" onChange={(e) =>setCvv(e.target.value) } type="text" value={cvv} placeholder=" CVV..." required/>
                             </div>
                         </div>
                     </div>

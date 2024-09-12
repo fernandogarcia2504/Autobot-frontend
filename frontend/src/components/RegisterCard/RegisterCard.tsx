@@ -1,12 +1,8 @@
 import React from "react";
-
-import { ROUTES } from "../../ROUTES";
-
 import axios from "axios";
 
 import { useState, FormEvent } from "react";
-import { NavLink, useNavigate } from 'react-router-dom';
-import {Link} from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
 
 
 const RegisterCard: React.FC = () => {
@@ -22,7 +18,17 @@ const RegisterCard: React.FC = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        navigate('/paying');
+        const user = {email,password,companyname,phonenumber,username}
+
+        axios.post("http://localhost:8080/users", user)
+        .then(() => {
+            console.log("new user");
+            navigate('/paying');
+
+        })
+        .catch(error => {
+            console.error("There was a mistake registering the user", error)
+        });
 
     };
 
@@ -34,7 +40,7 @@ const RegisterCard: React.FC = () => {
                 <div className="flex flex-col gap-5">
                     <div className="grid grid-cols-2 gap-2">
                         <input className="border rounded-md py-1" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder=" Nombre de usuario" required/>
-                        <input className="border rounded-md py-1" type="text" value={password}  onChange={(e) => setCompanyname(e.target.value)} placeholder=" Nombre de tu empresa" required />
+                        <input className="border rounded-md py-1" type="text" value={companyname}  onChange={(e) => setCompanyname(e.target.value)} placeholder=" Nombre de tu empresa" required />
                     </div>
                     <input className="border rounded-md py-1" type="text" value={email}  onChange={(e) => setEmail(e.target.value)} placeholder="  Correo electronico" required/>
                     <input className="border rounded-md py-1" type="text" value={phonenumber} onChange={(e) => setPhonenumber(e.target.value)} placeholder="  Numero de telefono" required/>
