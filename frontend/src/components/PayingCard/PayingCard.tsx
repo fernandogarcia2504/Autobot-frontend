@@ -20,12 +20,12 @@ const PayingCard = () => {
     return (
         <div className="flex flex-col justify-center items-center min-h-screen border ">
             <div className="grid grid-cols-auto ">
-                <form onClick={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                 <div className="border rounded-l-xl shadow-2xl py-6  px-5 max-w-lg">
                     <h1 className="text-green font-bold text-2xl pb-2">Detalles de pago</h1>
                     <div className="flex flex-col">
-                        <label>Correo electronico</label>
-                        <input className="border-b border-black mr-16" type="text" placeholder="Correo electronico..." />
+                        <label>Nombre en la tarjeta</label>
+                        <input className="border-b border-black mr-16" type="text" placeholder="Nombre en la tarjeta..." />
 
                         <label>Numero de telefono</label>
                         <input className="border-b border-black mr-16" type="text" placeholder="Numero de telefono..." /> 
@@ -68,7 +68,7 @@ const PayingCard = () => {
                     </div>
                     <div className="mt-5">
                         <div className="flex flex-col items-center">
-                            <button type="submit" className="text-white text-center bg-green rounded-lg px-5 py-1">Checkout</button>
+                            <button type="submit" className="text-white text-center bg-green rounded-lg px-5 py-1">Pagar </button>
                         </div>
                     </div>
                 </div>
