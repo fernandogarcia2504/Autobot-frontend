@@ -1,8 +1,7 @@
 import React, { FormEvent } from "react";
 import axios from "axios";
 
-
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginCard: React.FC = () => {
@@ -19,7 +18,8 @@ const LoginCard: React.FC = () => {
             const response = await axios.post('http://localhost:8080/auth/login' , user);
             const token = response.data.token;
             localStorage.setItem('token', token);
-            navigate('auth/dashboard');
+            console.log(token)
+            navigate('/auth/conversations');
             console.log('usuario loggeado');
         } catch (error) {
             setError("Usuario o contraseña incorrectos.")
@@ -50,12 +50,6 @@ const LoginCard: React.FC = () => {
                     </div>
                 </form>
                 <div className="flex items-center justify-center my-4">
-                <form>
-                    <button className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150" type="submit">
-                        <img className="translate-y-1/3" src="https://www.svgrepo.com/show/475656/google-color.svg" width={15} height={15} loading="lazy" alt="google logo" />
-                        <span>Login with Google</span>
-                    </button>
-                </form>
                 </div>
                 <p className="flex items-center justify-center gap-2">Nuevo en autobot? <a href='/Register'className="text-green">Regístrate aquí</a></p>
             </div>

@@ -1,20 +1,16 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { IAuthContext } from './types';
 
-export const AuthContext = createContext<any>(null);
+export const AuthContext = createContext<IAuthContext | null>(null);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
-    const navigate = useNavigate();
 
-    // Logout function
     const logout = () => {
-        localStorage.removeItem('token'); // Remove token
-        setToken(null); // Clear token state
-        navigate('/'); // Redirect to login page
+        localStorage.removeItem('token');
+        setToken(null);
     };
 
-    // Check token expiration and logout if expired
     useEffect(() => {
         if (token) {
             const tokenExpiration = JSON.parse(atob(token.split('.')[1])).exp * 1000;

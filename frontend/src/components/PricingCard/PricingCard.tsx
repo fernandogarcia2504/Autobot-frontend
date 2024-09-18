@@ -1,11 +1,7 @@
 import React from "react";
+import { IPricingCard } from "./types";
 
-interface PricingCardProps {
-    title:string;
-    price: number;
-}
-
-function PricingCard(props: PricingCardProps) {
+function PricingCard(props: IPricingCard) {
 
     const normalFeatures = ['Solo un numero registrado. ','Mensajes limitados.','Funnels limitados.'];
     const premiumFeatures = ['Hasta un maximo de cinco telefonos.', 'Mensajes ilimitados.','Funnels ilimitados.'];

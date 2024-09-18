@@ -12,7 +12,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     const location = useLocation();
-    const isAuthPage = location.pathname.includes('auth');
+    const isAuthPage = location.pathname.includes('/auth');
 
     if(isAuthPage) {
         return (

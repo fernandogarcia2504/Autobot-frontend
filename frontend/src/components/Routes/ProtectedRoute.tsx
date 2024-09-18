@@ -1,12 +1,13 @@
-import { useContext } from 'react';
-import { AuthContext } from '../../context/authContext';
+import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
+import { AuthContext } from '../../context/auth';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const { token } = useContext(AuthContext);
+    const authContext = useContext(AuthContext);
 
-    if (!token) {
-        return <Navigate to="/login" />; // Redirect to login if no token
+    // Ensure the token check is correct
+    if (!authContext || !authContext.token) {
+        return <Navigate to="/login" replace />; // Redirect to login if no token
     }
 
     return <>{children}</>; // Render protected content

@@ -23,7 +23,7 @@ const PayingCard = () => {
         event.preventDefault();
         const payment = {name,expirationDate,cvv,cardNumber,address,phonenumber}
 
-        axios.post("http://localhost:8080/payment", payment)
+        axios.post("http://localhost:8080/payment/add", payment)
             .then(() => {
                 console.log("New payment method");
                 navigate("/auth/dashboard");
