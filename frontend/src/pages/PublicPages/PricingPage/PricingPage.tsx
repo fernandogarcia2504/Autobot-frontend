@@ -1,4 +1,4 @@
-import PricingCard from "../../../components/PricingCard/PricingCard";
+import PricingCard from "../../../components/cards/PublicCards/PricingCard/PricingCard";
 
 const PricingPage  = () => {
     return(

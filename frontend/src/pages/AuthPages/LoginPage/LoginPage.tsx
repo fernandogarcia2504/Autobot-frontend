@@ -1,4 +1,4 @@
-import LoginCard from "../../../components/LoginCard/LoginCard";
+import LoginCard from "../../../components/cards/PublicCards/LoginCard/LoginCard";
 
 const LoginPage = () => {
     return (

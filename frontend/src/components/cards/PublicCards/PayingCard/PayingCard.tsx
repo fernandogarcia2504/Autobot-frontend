@@ -4,7 +4,7 @@ import axios from "axios";
 import { FormEvent, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import paymentImage from '../../assets/img/payment.jpg'
+import paymentImage from '../../../../assets/img/payment.jpg'
 import { FcSimCardChip } from "react-icons/fc";
 import { SiMastercard } from "react-icons/si";
 

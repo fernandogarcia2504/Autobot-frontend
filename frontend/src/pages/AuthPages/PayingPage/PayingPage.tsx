@@ -1,6 +1,6 @@
 import React from "react";
 
-import PayingCard from "../../../components/PayingCard/PayingCard";
+import PayingCard from "../../../components/cards/PublicCards/PayingCard/PayingCard";
 
 const PayingPage = () => {
     return (

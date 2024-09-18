@@ -1,4 +1,4 @@
-import RegisterCard from "../../../components/RegisterCard/RegisterCard";
+import RegisterCard from "../../../components/cards/PublicCards/RegisterCard/RegisterCard";
 
 const Form = () => {
     return (

@@ -16,19 +16,18 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     if(isAuthPage) {
         return (
-            <div className='h-screen '>
-            <div className='flex h-full'>
-                <Sidebar>
-                    <SidebarItem icon={<AiFillDashboard />} text="Dashboard" to="/auth/dashboard" />
-                    <SidebarItem icon={<FaMessage />} text="Nuevos mensajes" to="/auth/messages" />
-                    <SidebarItem icon={<BiSolidConversation />} text="Conversaciones" to="/auth/conversations" />
-                    <SidebarItem icon={<FaUserCircle />} text="Usuarios" to="/auth/users" />
-                </Sidebar>
-                <div className='w-full'>
-                    <Navbar />
-                    <main >{children}</main>
+            <div className='h-full'> {/* Use h-full instead of h-screen */}
+                <div className='flex h-full'>
+                    <Sidebar>
+                        <SidebarItem icon={<AiFillDashboard />} text="Dashboard" to="/auth/dashboard" />
+                        <SidebarItem icon={<BiSolidConversation />} text="Conversaciones" to="/auth/conversations" />
+                        <SidebarItem icon={<FaUserCircle />} text="Usuarios" to="/auth/users" />
+                    </Sidebar>
+                    <div className='w-full flex flex-col'> {/* Ensure full width and flex column */}
+                        <Navbar />
+                        <main className="flex-grow h-full">{children}</main> {/* Main should grow to fill space */}
+                    </div>
                 </div>
-            </div>
             </div>
         );
     }

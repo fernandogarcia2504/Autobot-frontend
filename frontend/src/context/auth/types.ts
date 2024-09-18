@@ -1,5 +1,5 @@
 export interface IAuthContext {
     token: string | null;
-    setToken: (token: string | null) => void;
+    setToken: React.Dispatch<React.SetStateAction<string | null>>;
     logout: () => void;
 }

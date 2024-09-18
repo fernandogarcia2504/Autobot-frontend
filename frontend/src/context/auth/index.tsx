@@ -11,6 +11,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setToken(null);
     };
 
+    // Update token state when it changes in localStorage
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setToken(localStorage.getItem('token'));
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
+
+    // Check token expiration
     useEffect(() => {
         if (token) {
             const tokenExpiration = JSON.parse(atob(token.split('.')[1])).exp * 1000;
