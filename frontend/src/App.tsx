@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Layout from './layouts/Layout';
+import ProtectedRoute from './components/Routes/ProtectedRoute';
 
 import { HomePage } from './pages/PublicPages/HomePage';
 import { PricingPage } from './pages/PublicPages/PricingPage';
@@ -27,10 +28,10 @@ const App: React.FC = () => {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/paying" element={<PayingPage />} />
 
-            <Route path="/auth/dashboard" element={<DashboardPage />} />
-            <Route path="/auth/messages" element={<MessagesPage />} />
-            <Route path="/auth/conversations" element={<ConversationsPage />} />
-            <Route path="/auth/users" element={<UsersPage />} />
+            <Route path="/auth/dashboard" element={<ProtectedRoute><DashboardPage/> </ProtectedRoute>} />
+            <Route path="/auth/messages" element={<ProtectedRoute><MessagesPage /></ProtectedRoute>} />
+            <Route path="/auth/conversations" element={<ProtectedRoute><ConversationsPage /></ProtectedRoute>} />
+            <Route path="/auth/users" element={<ProtectedRoute><UsersPage /></ProtectedRoute>} />
         </Routes>
       </Layout>
     </Router>

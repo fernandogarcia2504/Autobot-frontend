@@ -20,14 +20,15 @@ const RegisterCard: React.FC = () => {
         e.preventDefault();
         const user = {email,password,companyname,phonenumber,username}
 
-        axios.post("http://localhost:8080/users", user)
+        axios.post('http://localhost:8080/auth/signup', user)
         .then(() => {
             console.log("new user");
             navigate('/paying');
 
         })
         .catch(error => {
-            console.error("There was a mistake registering the user", error)
+            console.error("There was a mistake registering the user", error);
+            setError("There was a problem registering the user. Please try again.");        
         });
 
     };
