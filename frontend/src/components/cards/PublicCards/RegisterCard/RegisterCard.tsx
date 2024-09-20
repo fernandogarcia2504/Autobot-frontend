@@ -18,19 +18,7 @@ const RegisterCard: React.FC = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const user = {email,password,companyname,phonenumber,username}
-
-        axios.post('http://localhost:8080/auth/signup', user)
-        .then(() => {
-            console.log("new user");
-            navigate('/paying');
-
-        })
-        .catch(error => {
-            console.error("There was a mistake registering the user", error);
-            setError("There was a problem registering the user. Please try again.");        
-        });
-
+        navigate('/paying');
     };
 
     return(

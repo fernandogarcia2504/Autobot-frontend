@@ -2,7 +2,6 @@ import React, { FormEvent, useContext } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../../context/auth";
 
 const LoginCard: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -10,27 +9,11 @@ const LoginCard: React.FC = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const authContext = useContext(AuthContext); // Now authContext should have setToken
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const user = { email, password };
+        navigate('/auth/conversations');
 
-        try {
-            const response = await axios.post('http://localhost:8080/auth/login', user);
-            const token = response.data.token;
-            localStorage.setItem('token', token);
-
-            // Update the token in AuthContext
-            if (authContext) {
-                authContext.setToken(token);
-            }
-
-            console.log(token);
-            navigate('/auth/conversations');
-        } catch (error) {
-            setError("Usuario o contraseña incorrectos.");
-        }
     };
 
     return (

@@ -1,7 +1,5 @@
 import React from "react";
-import axios from "axios";
-
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import paymentImage from '../../../../assets/img/payment.jpg'
@@ -21,16 +19,8 @@ const PayingCard = () => {
 
     function handleSubmit(event: FormEvent<HTMLFormElement>)  {
         event.preventDefault();
-        const payment = {name,expirationDate,cvv,cardNumber,address,phonenumber}
+        navigate("/auth/dashboard");
 
-        axios.post("http://localhost:8080/payment/add", payment)
-            .then(() => {
-                console.log("New payment method");
-                navigate("/auth/dashboard");
-            })
-            .catch(error => {
-                console.error("There was an error making the request!", error);
-            });
     }
   
     return (

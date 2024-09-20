@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/auth';
 
 import Layout from './layouts/Layout';
-import ProtectedRoute from './Routes/ProtectedRoute';
 import { HomePage } from './pages/PublicPages/HomePage';
 import { PricingPage } from './pages/PublicPages/PricingPage';
 import { BlogPage } from './pages/PublicPages/BlogPage';
@@ -18,7 +16,6 @@ import { UsersPage } from './pages/AppPages/Users';
 const App: React.FC = () => {
     return (
             <Router>
-              <AuthProvider>
                 <Layout>
                     <Routes>
                         <Route path="/" element={ <HomePage />} />
@@ -28,12 +25,11 @@ const App: React.FC = () => {
                         <Route path="/register" element={ <RegisterPage />} />
                         <Route path="/paying" element={ <PayingPage />} />
 
-                        <Route path="/auth/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-                        <Route path="/auth/conversations" element={<ProtectedRoute><ConversationsPage /></ProtectedRoute>} />
-                        <Route path="/auth/users" element={<ProtectedRoute><UsersPage /></ProtectedRoute>} />
+                        <Route path="/auth/dashboard" element={<DashboardPage />} />
+                        <Route path="/auth/conversations" element={<ConversationsPage />} />
+                        <Route path="/auth/users" element={<UsersPage />} />
                     </Routes>
                 </Layout>
-                </AuthProvider>
             </Router>
     );
 };

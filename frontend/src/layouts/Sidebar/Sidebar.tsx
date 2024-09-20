@@ -1,20 +1,21 @@
-import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IoSettings, IoLogOutSharp } from "react-icons/io5";
-import { ROUTES } from "../../ROUTES";
-import { AuthContext } from "../../context/auth";
+
 import SettingsCard from "../../components/cards/AuthCards/SettingsCard/SettingsCard";
 
 type SidebarProps = React.PropsWithChildren<{}>;
 
 export default function Sidebar({ children }: SidebarProps) {
-  const authContext = useContext(AuthContext); // Access AuthContext
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false); // State to manage popup visibility
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false); 
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    console.log("Logout button clicked"); // Debugging log
-    authContext?.logout();
-  };
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    navigate('/');
+
+};
+
 
   const toggleSettingsPopup = () => {
     setIsSettingsOpen((prev) => !prev); // Toggle popup
@@ -40,7 +41,7 @@ export default function Sidebar({ children }: SidebarProps) {
             </li>
             <li className="relative flex items-center py-2 px-3 my-1 font-medium rounded-lg cursor-pointer gap-2 text-xl">
               <IoLogOutSharp />
-              <button className="m-0 text-left" onClick={handleLogout}>
+              <button className="m-0 text-left" onClick={handleSubmit}>
                 Cerrar Sesion
               </button>
             </li>
@@ -48,7 +49,6 @@ export default function Sidebar({ children }: SidebarProps) {
         </nav>
       </aside>
 
-      {/* Render SettingsCard */}
       <SettingsCard show={isSettingsOpen} onClose={toggleSettingsPopup} />
     </>
   );
