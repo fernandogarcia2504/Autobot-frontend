@@ -5,7 +5,7 @@ const HomeNav = () => {
         <nav className="sticky top-0 z-30  border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
             <div className="flex flex-col items-center">
             <div className="grid grid-cols-3 pt-4 pb-2 gap-32 ">
-                <h1 className="text-3xl text-green font-bold pl-14 pt-2">AutoBot</h1>
+                <Link to='/' className="text-3xl text-green font-bold pl-14 pt-2">AutoBot</Link>
                 <div className="flex justify-center gap-10 pt-2">
                     <Link to='/pricing' className="font-semibold">Precios</Link>
                     <Link to='/Blog' className="font-semibold">Blog</Link>
